@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block title %} Group list {% endblock %}
+
+{% block content %}
+<br>
+<div class='table'>
+<a class="button_primary" href="#">Add group</a>&nbsp
+<hr>
+        <forms>
+            <button type="submit" onclick="return confirm('Are you sure that you want to delete all groups?')" class="button_danger"> Delete Groups </button>
+        </forms>
+</div>
+<br>
+<table class="table"> 
+    <tr>
+        <th>S/N</th>
+        <th>Level ID</th>
+        <th>Level Name</th>
+        <th>Group ID</th>
+        <th>Group Name</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>200 level</td>
+        <td>6</td>
+        <td>Group 6</td>
+        <td><a class="button_primary" href="#">Edit</a>&nbsp
+        <forms>
+            <button type="submit" onclick="return confirm('Are you sure that you want to delete this row?')" class="button_danger"> Delete </button>
+        </forms>
+        </td>
+    </tr>
+</table>
+
+<h1>Welcome to group list</h1>
+{% endblock %}

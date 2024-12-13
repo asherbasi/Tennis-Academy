@@ -1,0 +1,26 @@
+{% extends "index.html"%}
+
+{% block title %} Add Department {% endblock %}
+
+{% block content %}
+<form method="POST"> 
+<p>
+    {{fm.hidden_tag()}} 
+</p>
+
+<p>
+    {{fm.faculty_id.label()}}
+    {{fm.faculty_id()}}
+</p>
+
+<p>{{fm.name.label()}} <!--Text label-->
+    {{fm.name()}}  <!--Text field-->
+</p>
+
+<p>{{fm.code.label()}}
+    {{fm.code()}}
+</p>
+
+<p>{{fm.submit(class="button_primary")}}</p>
+</form>
+{% endblock %}

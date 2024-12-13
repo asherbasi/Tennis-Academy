@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+{% block title %} faculty list {% endblock %}
+
+{% block content %}
+<br>
+<div class='table'>
+<a class="button_primary" href="{{url_for('faculty.add_faculty')}}">Add faculty</a>&nbsp;
+<hr>
+        <form method="POST" action="{{url_for('faculty.delete_all_faculty')}}">
+            <button type="submit" onclick="return confirm('Are you sure that you want to delete all faculties?')" class="button_danger"> Delete all Faculties </button>
+        </form>
+</div>
+<br>
+<table class="table"> 
+    <tr>
+        <th>S/N</th>
+        <th>Faculty Name</th>
+        <th>Faculty Code</th>
+        <th>Action</th>
+    </tr>
+
+{%   for i in fac %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.code}}</td>
+        <td><a class="button_primary" href="{{url_for('faculty.update_faculty', id= i.id)}}">Edit</a>&nbsp;
+        <form action="{{url_for('faculty.delete_faculty', id =i.id)}}" method="POST">
+            <button type="submit" onclick="return confirm('Are you sure that you want to delete this row?')" class="button_danger"> Delete </button>
+        </form>
+        </td>
+    </tr>
+
+{% endfor %}
+</table>
+<h1>Welcome to faculty list</h1>
+{% endblock %}

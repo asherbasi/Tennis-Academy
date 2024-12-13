@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset ="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>{% block title %} Web tech Project {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for("static" , filename="css/style.css")}}">
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{url_for("faculty.get_faculty_list")}}">Faculty</a></li>
+                <li><a href="{{url_for("department.get_department_list")}}"> Department</a></li>
+                <li><a href="{{url_for("program.get_program_list")}}">Program</a></li>
+                <li><a href="{{url_for("level.get_level_list")}}">Level</a></li>
+                <li><a href="{{url_for("course.get_course_list")}}"> Course</a></li>
+                <li><a href="{{url_for("group.get_group_list")}}"> Group</a></li>
+                <li><a href="{{url_for("student.get_student_list")}}"> Student</a></li>
+                <li><a href="{{url_for("assign_student.get_assign_student_list")}}"> Assign Student to Group</a></li>
+
+            </ul>
+        </nav>
+    </header>
+<div>
+    {% block content  %}
+
+    {% endblock %}
+</div>
+
+<footer>
+    <p> Nile University Software Engineering Student</p>
+</footer>
+
+
+</body>
+</html>

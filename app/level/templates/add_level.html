@@ -1,0 +1,20 @@
+{% extends "index.html"%}
+
+{% block title %} Add Level {% endblock %}
+
+{% block content %}
+<form method="POST"> 
+<p>
+    {{form.hidden_tag()}} 
+</p>
+<p>
+    {{form.level_id.label()}}
+    {{form.level_id()}}
+</p>
+<p>{{form.level_name.label()}} <!--Text label-->
+    {{form.level_name()}}  <!--Text field-->
+</p>
+
+<p>{{form.submit(class="button_primary")}}</p>
+</form>
+{% endblock %}

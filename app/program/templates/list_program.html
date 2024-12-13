@@ -1,0 +1,42 @@
+{% extends "index.html" %}
+
+{% block title %} Program list {% endblock %}
+
+{% block content %}
+<br>
+<div class='table'>
+<a class="button_primary" href="{{url_for('program.add_program')}}">Add program</a>&nbsp;
+<hr>
+        <forms methods="POST" action="{{url_for('program.delete_all_program')}}">
+            <button type="submit" onclick="return confirm('Are you sure that you want to delete all programs?')" class="button_danger"> Delete all Programs </button>
+        </forms>
+</div>
+<br>
+<table class="table"> 
+    <tr>
+        <th>S/N</th>
+        <th>Department ID</th>
+        <th>Department Name</th>
+        <th>Program Name</th>
+        <th>Program Code</th>
+        <th>Action</th>
+    </tr>
+    {%  for i in prog %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.Department.id}}</td>
+        <td>{{i.Department.name}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.code}}</td>
+        <td><a class="button_primary" href="{{url_for('program.update_program', id=i.id)}}">Edit</a>&nbsp;
+        <forms method= "POST"action="{{url_for('program.delete_program', id=i.id)}}">
+            <button type="submit" onclick="return confirm('Are you sure that you want to delete this row?')" class="button_danger"> Delete </button>
+        </forms>
+        </td>
+    </tr>
+
+{% endfor %}
+</table>
+
+<h1>Welcome to Program list</h1>
+{% endblock %}
